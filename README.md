@@ -1,4 +1,4 @@
-# Baigiamasis darbas
+# BAIGIAMASIS DARBAS
 
 # Užduotis:
 Naftos kainų svyravimo analizė ir prognozė
@@ -18,3 +18,11 @@ Stebėti naftos kainų svyravimus ir prognozuoti jų pokyčius, remiantis istori
 - SQL: Saugoti duomenis ir modelio prognozes, atlikti bent 4-6 užklausas
 
 ---
+
+## Diegimas ir paleidimas
+
+1. Saugyklos klonavimas iš GitHub<br>
+```git clone https://github.com/DovileBalciene/Baigiamasis-darbas```<br>
+```cd Baigimasis-darbas```
+2. Virtualios aplinkos sukūrimas<br>
+``````
