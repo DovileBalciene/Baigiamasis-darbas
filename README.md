@@ -22,13 +22,14 @@ Stebėti naftos kainų svyravimus ir prognozuoti jų pokyčius, remiantis istori
 ## Diegimas ir paleidimas
 
 1. Saugyklos klonavimas iš GitHub<br>
-git clone https://github.com/DovileBalciene/Baigiamasis-darbas
-```angular2html
+```git clone https://github.com/DovileBalciene/Baigiamasis-darbas```<br>
+```cd Baigimasis-darbas```
 ```
-cd Baigimasis-darbas
-```angular2html
+git clone https://github.com/DovileBalciene/Baigiamasi-darbas
+```
+```
+cd Baigiamasis-darbas
+```
 2. Virtualios aplinkos sukūrimas<br>
-```
-python -m venv
-```
+
 
