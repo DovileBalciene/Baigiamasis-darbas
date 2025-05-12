@@ -36,7 +36,8 @@ Stebėti naftos kainų svyravimus ir prognozuoti jų pokyčius, remiantis istori
 Vykdomas projektas leidžia stebėti ir analizuoti naftos kainų pokyčius. 
 Naudojant Selenium metodą, nuskaitoma puslapio informacija. 
 Naudojant Pandas vykdoma duomenų analizė. 
-Pasitelkiant vizualizacijas, grafiškai atvaizduojame naftos kainų pokyčius. 
+Pasitelkiant vizualizacijas, 
+grafiškai atvaizduojame naftos kainų pokyčius. 
 
 ---
 
@@ -63,7 +64,37 @@ pip install -r requirements.txt
 python main.py
 ```
 
+---
+
 ### Puslapio nuskaitymas
 
+1. Naudojamų bibliotekų importavimas<br>
+```
+from Selenium 
+```
+2. Puslapio URL nuskaitymas<br>
+```
+https://markets.businessinsider.com/commodities/oil-price?type=wti?utm_source=feedly
+```
+3. Postgres duomenų bazės sukūrimas<br>
+```
+init_db(Naftos_kaina)
+```
+4. Rezultatų gavimas<br>
+
+---
+
+### Duomenų analizė
+
+1. Bibliotekų įkėlimas<br>
+```
+import pandas as pd
+```
+2. Duomenų valymas 
+   - Nereikalingų simbolių, reikšmių sutvarkymas 
+   - Datos formato pakeitimas
+   - Tekstinių stulpelių transformavimas į skaičius
+
+3. 
 
 
