@@ -37,3 +37,4 @@ def karegorija(kaina):
 df['kategorija'] = df['Close'].apply(karegorija)
 print(df['kategorija'].value_counts())
 print(df[['Close', 'Date', 'kategorija']])
+

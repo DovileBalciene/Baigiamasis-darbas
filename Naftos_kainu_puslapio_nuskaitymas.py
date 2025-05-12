@@ -5,7 +5,7 @@ from psycopg2.extras import execute_values
 from selenium import webdriver
 from selenium.common import ElementNotInteractableException, TimeoutException
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By # pagal ka ieskom
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
@@ -25,17 +25,17 @@ base_url = 'https://markets.businessinsider.com'
 naftos_kainos_duomenys = []
 
 while True:
-    lenteliu_info= driver.find_elements(By.CSS_SELECTOR,'table table--fixed table--sortable table--scrollable table--suppresses-line-breaks' )
+    lenteliu_info= driver.find_elements(By.ID,'e92c0d0cb_88f1_48bc_963f_7ab2ef99deac' )
+    for nafta in lenteliu_info:
+        duomenys = nafta.get_attribute("table")
+        if duomenys not in lenteliu_info:
+            naftos_kainos_duomenys.append(duomenys)
     try:
         for i in range(5):
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(1)
-        load_more = wait.until(EC.element_to_be_clickable((By.ID, "records-paginator")))
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", load_more)
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});")
         time.sleep(1)
-        load_more.click()
-        print("Clicked load more")
-        time.sleep(2)
     except(TimeoutException, ElementNotInteractableException):
         print(" No more loads or can't click")
         break
