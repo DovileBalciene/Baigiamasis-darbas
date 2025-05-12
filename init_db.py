@@ -8,15 +8,15 @@ PG_HOST = 'localhost'
 PG_PORT = 5432
 
 # Nusakome duomenu bazes pavadinima, stulpelius ir sukuriam pacia lentele
-DB_NAME = 'naftos_kaina'
+DB_NAME = 'Naftos_kaina'
 TABLE_SQL = """
     CREATE TABLE IF NOT EXISTS naftos_kainos(
         id SERIAL PRIMARY KEY,
-        data DATE NOT NULL,
-        kaina_pradzioje decimal NOT NULL,
-        kaina_pabaigoje decimal NOT NULL,
-        min_kaina decimal NOT NULL,
-        max_kaina decimal NOT NULL 
+        Date DATE NOT NULL,
+        Open decimal NOT NULL,
+        Close decimal NOT NULL,
+        High decimal NOT NULL,
+        Low decimal NOT NULL 
     );
 """
 
