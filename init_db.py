@@ -3,7 +3,7 @@ from psycopg2 import sql
 
 # Apsibreziam savo duomenis/konfiguracija
 PG_USER = 'postgres'
-PG_PASSWORD = '123456A'
+PG_PASSWORD = '369963369'
 PG_HOST = 'localhost'
 PG_PORT = 5432
 
@@ -11,6 +11,7 @@ PG_PORT = 5432
 DB_NAME = 'naftos_kaina'
 TABLE_SQL = """
     CREATE TABLE IF NOT EXISTS naftos_kainos(
+        id SERIAL PRIMARY KEY,
         data DATE NOT NULL,
         kaina_pradzioje decimal NOT NULL,
         kaina_pabaigoje decimal NOT NULL,
@@ -20,8 +21,8 @@ TABLE_SQL = """
 """
 
 # Prijungia prie DEFAULT duomenu bazes
-conn = psycopg2.connect( # Nusakome kur jungtis
-    dbname='naftos_kaina',
+conn = psycopg2.connect(
+    dbname='postgres',
     user=PG_USER,
     password=PG_PASSWORD,
     host=PG_HOST,
