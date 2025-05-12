@@ -24,5 +24,8 @@ Stebėti naftos kainų svyravimus ir prognozuoti jų pokyčius, remiantis istori
 1. Saugyklos klonavimas iš GitHub<br>
 ```git clone https://github.com/DovileBalciene/Baigiamasis-darbas```<br>
 ```cd Baigimasis-darbas```
+```angular2html
+```
+
 2. Virtualios aplinkos sukūrimas<br>
-``````
+
