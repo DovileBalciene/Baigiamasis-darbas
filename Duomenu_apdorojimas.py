@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from tokenize import tokenize, untokenize, NUMBER, STRING, NAME, OP
 from io import BytesIO
-file_path = 'C:/Users/dovil/PycharmProjects/Baigiamasis_darbas/Oil (WTI)_10_26_20-03_07_22.csv'
+file_path = 'C:/Users/dovil/PycharmProjects/Baigiamasis_darbas/Nafta_nuo_2015_01_01_iki_2025_04_30.csv'
 df = pd.read_csv(file_path)
 # print(df)
 
