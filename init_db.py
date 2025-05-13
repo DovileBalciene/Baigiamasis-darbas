@@ -1,9 +1,10 @@
 import psycopg2
 from psycopg2 import sql
+from sqlalchemy.dialects.mysql import Insert
 
 # Apsibreziam savo duomenis/konfiguracija
 PG_USER = 'postgres'
-PG_PASSWORD = '369963369'
+PG_PASSWORD = '123456A'
 PG_HOST = 'localhost'
 PG_PORT = 5432
 
@@ -11,12 +12,12 @@ PG_PORT = 5432
 DB_NAME = 'Naftos_kaina'
 TABLE_SQL = """
     CREATE TABLE IF NOT EXISTS naftos_kainos(
-        id SERIAL PRIMARY KEY,
-        Date DATE NOT NULL,
-        Open decimal NOT NULL,
-        Close decimal NOT NULL,
-        High decimal NOT NULL,
-        Low decimal NOT NULL 
+        Open decimal,
+        Close decimal,
+        High decimal,
+        Low decimal,
+        Volume varchar,
+        Date varchar
     );
 """
 
@@ -62,5 +63,10 @@ def create_table():
     except psycopg2.Error as e:
         print(f"Database error: {e}")
 
+
+
+
+
 if __name__ == "__main__":
     create_table()
+

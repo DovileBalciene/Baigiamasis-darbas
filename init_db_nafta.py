@@ -11,13 +11,12 @@ PG_PORT = 5432
 DB_NAME = 'Naftos_kaina'
 TABLE_SQL = """
     CREATE TABLE IF NOT EXISTS kainos(
-        id SERIAL PRIMARY KEY,
-        Open decimal NOT NULL,
-        Close decimal NOT NULL,
-        High decimal NOT NULL,
-        Low decimal NOT NULL, 
-        Volume decimal,
-        Date DATE NOT NULL
+        Open varchar,
+        Close varchar,
+        High varchar,
+        Low varchar, 
+        Volume varchar,
+        Date varchar
         
     );
 """
