@@ -106,6 +106,8 @@ import pandas as pd
    - Kainų skirtumas tarp mažiausios ir didžiausios naftos kainos
    - Naujos kategorijos: aukšta, vidutinė, žema sukūrimas
    
+### Vizualizacijos
+![PLOT!](C:/Users/dovil/PycharmProjects/Baigiamasis_darbas/myplot.png)
 
 
 
