@@ -115,7 +115,9 @@ import pandas as pd
    - Aukščiausios kainos grupavimas, pagal datą
    - Kainų skirtumas tarp mažiausios ir didžiausios naftos kainos
    - Naujos kategorijos: aukšta, vidutinė, žema sukūrimas
-   
+
+---
+
 ### Vizualizacijos
 ![Image](https://github.com/user-attachments/assets/a007ba92-5066-4790-ac50-3e7e126c3eb1)
 
