@@ -75,11 +75,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as EC 
 from webdriver_manager.chrome import ChromeDriverManager
+import time
 ```
-2. Puslapio URL nuskaitymas<br>
+2. Puslapio URL nuskaitymas, nuskaitoma naftos kainų lentelė<br>
 ```
 https://markets.businessinsider.com/commodities/oil-price?type=wti?utm_source=feedly
 ```
+![Image](https://github.com/user-attachments/assets/186fd680-f5cd-4afe-b22a-4cea1c217cba)
+
 3. Postgres duomenų bazės sukūrimas<br>
 ```
 init_db(Naftos_kaina)
