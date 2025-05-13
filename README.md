@@ -90,11 +90,22 @@ init_db(Naftos_kaina)
 ```
 import pandas as pd
 ```
-2. Duomenų valymas 
+2. Duomenų failo įkėlimas<br>
+```
+
+```
+
+3. Duomenų valymas 
    - Nereikalingų simbolių, reikšmių sutvarkymas 
    - Datos formato pakeitimas
    - Tekstinių stulpelių transformavimas į skaičius
 
-3. 
+4. Analizės atlikimas 
+   - Vidutinės kainos suradymas, panaudojant funkciją mean()
+   - Aukščiausios kainos grupavimas, pagal datą
+   - Kainų skirtumas tarp mažiausios ir didžiausios naftos kainos
+   - Naujos kategorijos: aukšta, vidutinė, žema sukūrimas
+   
+
 
 
