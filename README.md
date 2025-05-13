@@ -107,7 +107,7 @@ import pandas as pd
    - Naujos kategorijos: aukšta, vidutinė, žema sukūrimas
    
 ### Vizualizacijos
-![PLOT!](C:/Users/dovil/PycharmProjects/Baigiamasis_darbas/myplot.png)
+![PLOT!](C:\Users\dovil\PycharmProjects\Baigiamasis_darbas\myplot.png)
 
 
 
