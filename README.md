@@ -27,7 +27,8 @@ Stebėti naftos kainų svyravimus ir prognozuoti jų pokyčius, remiantis istori
 4. Duomenų analizė
 5. Vizualizacijos
 6. Prognozės modelis
-7. Apibendrinimas
+7. SQL
+8. Apibendrinimas
 
 ---
 
@@ -83,12 +84,14 @@ https://markets.businessinsider.com/commodities/oil-price?type=wti?utm_source=fe
 ```
 ![Image](https://github.com/user-attachments/assets/186fd680-f5cd-4afe-b22a-4cea1c217cba)
 
-3. Postgres duomenų bazės sukūrimas<br>
-```
-init_db(Naftos_kaina)
-```
-4. Rezultatų gavimas<br>
 
+3. Rezultatų gavimas<br>
+   - Naudojant selenium bibliotekas, nuskaitomas pasirinktas puslapis
+   - Surandama pagrindinė klasė, apjungianti pagrindinę informaciją
+   - Nuskaitomi reikalingi duomenys iš lentelės
+   - Gaunami puslapio nuskaitymo rezultatai
+   - Sukuriama duomenų bazė
+   
 ---
 
 ### Duomenų analizė
@@ -108,7 +111,7 @@ import pandas as pd
    - Tekstinių stulpelių transformavimas į skaičius
 
 4. Analizės atlikimas 
-   - Vidutinės kainos suradymas, panaudojant funkciją mean()
+   - Vidutinės kainos suradimas, panaudojant funkciją mean()
    - Aukščiausios kainos grupavimas, pagal datą
    - Kainų skirtumas tarp mažiausios ir didžiausios naftos kainos
    - Naujos kategorijos: aukšta, vidutinė, žema sukūrimas
@@ -117,10 +120,43 @@ import pandas as pd
 ![Image](https://github.com/user-attachments/assets/a007ba92-5066-4790-ac50-3e7e126c3eb1)
 
 ---
+
    - Naudojama Matplotlib pyplot biblioteka
    - Sukuriamas naujas stulpelio kintamasis
    - Piešiama PLOT vizualizacija, atvaizduojanti naftos kainų augimą, pagal metus
    - Pagal grafiką matoma, jog aukščiausia naftos kaina buvo 2022 metais
    - Mažiausia naftos kaina buvo fiksuojama 2018 metais
 
+---
 
+![Image](https://github.com/user-attachments/assets/ed02c9a1-c6b0-4af1-acab-251f09b4198e)
+   - Naudojamos bibliotekos<br>
+```
+import pandas as pd
+import matplotlib.pyplot as plt
+from tensorflow.keras import Input
+from tensorflow.keras import Sequential
+from tensorflow.keras. layers import Flatten, Dense
+```
+   - Neuroninio tinklo apmokymas, naudojant 2 tankių sluoksnį, gaunant naftos kainos prognozę
+   - Tinklas apsimoko iš 1000 epochu, pateikiami tikslumo ir praradimo rodikliai
+   - Buvo mėginta daryti su 100 epochu, bet gavosi didelis nuostolis, tad nuspręsta didinti jų skaičių
+
+---
+### Prognozės modelis
+![Image](https://github.com/user-attachments/assets/1831615c-eec5-409a-bc5a-ee959cd7a592)
+   - Naudojamos bibliotekos
+```
+import pandas as pd
+from sklearn.model_selection import train_test_split  
+from sklearn.preprocessing import LabelEncoder
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.metrics import accuracy_score 
+import matplotlib.pyplot as plt
+```
+   - Naftos kainų prognozė, naudojant neuronoinį tinklą
+
+
+### SQL
+---
+### Apibendrinimas
