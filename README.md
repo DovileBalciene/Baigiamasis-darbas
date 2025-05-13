@@ -70,7 +70,11 @@ python main.py
 
 1. Naudojamų bibliotekų importavimas<br>
 ```
-from Selenium 
+from selenium.webdriver.chrome.service import Service 
+from selenium.webdriver.common.by import By 
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC 
+from webdriver_manager.chrome import ChromeDriverManager
 ```
 2. Puslapio URL nuskaitymas<br>
 ```
@@ -109,5 +113,11 @@ import pandas as pd
 ### Vizualizacijos
 ![Image](https://github.com/user-attachments/assets/a007ba92-5066-4790-ac50-3e7e126c3eb1)
 
+---
+   - Naudojama Matplotlib pyplot biblioteka
+   - Sukuriamas naujas stulpelio kintamasis
+   - Piešiama PLOT vizualizacija, atvaizduojanti naftos kainų augimą, pagal metus
+   - Pagal grafiką matoma, jog aukščiausia naftos kaina buvo 2022 metais
+   - Mažiausia naftos kaina buvo fiksuojama 2018 metais
 
 
