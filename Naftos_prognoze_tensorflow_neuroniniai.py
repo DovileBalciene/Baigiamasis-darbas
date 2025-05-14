@@ -1,9 +1,5 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import tensorflow as tf
-import os
-from keras import Sequential
 from tensorflow.keras import Input
 from tensorflow.keras import Sequential
 from tensorflow.keras. layers import Flatten, Dense
@@ -35,7 +31,7 @@ model.compile(loss='mse', # vidutine kvadratine klaida
 model.summary()
 
 history = model.fit(X, y,
-                    epochs=100,
+                    epochs=1000,
                     validation_split=0.2,
                     verbose=2)
 
