@@ -146,6 +146,8 @@ from tensorflow.keras. layers import Flatten, Dense
 
 ---
 ### Prognozės modelis
+---
+
 ![Image](https://github.com/user-attachments/assets/1831615c-eec5-409a-bc5a-ee959cd7a592)
    - Naudojamos bibliotekos
 ```
@@ -158,7 +160,29 @@ import matplotlib.pyplot as plt
 ```
    - Naftos kainų prognozė, naudojant neuronoinį tinklą
 
+---
 
 ### SQL
 ---
+   - Naudojamos bibliotekos
+```
+import pandas as pd
+import psycopg2
+from sqlalchemy import create_engine
+```
+
+   - Įkeliami duomenų bazę su "db_config"
+   - Prisijungiame prie jos, naudodami "engine"
+   - Kuriame SQL užklausas
+   - Spausdiname rezultatus
+
+---
+
 ### Apibendrinimas
+   - Atlikus puslapio skenavimą, gauname rezultatus apie naftos kainą,
+iš kurių galime kurti csv failą.
+   - Pagal sukurtą failą, naudojame "pandas" atlikti duomenų analizei
+   - Naudodami, neuroninius tinklus ir prognozės modelį, sukuriame vizualizacijas, atspindinčias duomenis
+   - Sukurę "postgres" duomenų bazę, atliekame "sql" užklausas
+   - Pagal surinktus duomenis matome, kad aukščiausią kainą nafta pasiekė 2022 metais
+   - 
