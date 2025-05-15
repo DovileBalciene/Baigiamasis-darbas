@@ -1,7 +1,24 @@
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-import sklearn
+import requests 2.32.3
+from bs4 import BeautifulSoup 3.10.3
+import pandas as pd 2.2.3
+import matplotlib.pyplot as plt 3.10.3
+from sklearn.cluster import KMeans 1.6.1
+import sklearn 1.6.1
+import psycopg2 2.9.10
+from psycopg2 import sql 2.9.10
+from sqlalchemy.dialects.mysql import Insert 2.0.40
+import  sqlite3 1.6.1
+import csv 3.10.3
+from psycopg2.extras import execute_values 2.9.10
+from selenium.webdriver.chrome.service import Service 4.32.0
+from selenium.webdriver.common.by import By 4.32.0
+from selenium.webdriver.support.wait import WebDriverWait 4.32.0
+from sqlalchemy import create_engine 2.0.40
+from webdriver_manager.chrome import ChromeDriverManager 4.0.2
+from sklearn.ensemble import RandomForestRegressor 1.6.1
+from sklearn.metrics import mean_squared_error, r2_score 1.6.1
+from sklearn.preprocessing import LabelEncoder 1.6.1
+from tensorflow.keras import Input  2.19.0
+from tensorflow.keras import Sequential 2.19.0
+from tensorflow.keras.layers import Flatten, Dense 2.19.0
 
