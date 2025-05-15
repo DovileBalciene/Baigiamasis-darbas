@@ -1,99 +1,86 @@
 import csv
-
-import pandas as pd
-import psycopg2
 import requests
-from bs4 import BeautifulSoup
-from psycopg2.extras import execute_values
-from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from sqlalchemy import create_engine
-from webdriver_manager.chrome import ChromeDriverManager
-
-options = webdriver.ChromeOptions()
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-wait = WebDriverWait(driver, 20)  # Suteikia laukimo laika (10 sec) kol ivykdys nurodyta salyga
-driver.maximize_window()  # Atidarys pilnai langa
-
-driver.get("https://markets.businessinsider.com/commodities/oil-price?type=wti?utm_source=feedly")
-
-url = "https://markets.businessinsider.com/commodities/oil-price?type=wti?utm_source=feedly"
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from sqlalchemy.dialects.postgresql import psycopg2
 
 db_config = {
+    "dbname": "Naftos_kaina",
     "user": "postgres",
-    "password": "123145A",
+    "password": "123456A",
     "host": "localhost",
-    "port": 5432,
-    "dbname": "Naftos_kaina"
+    "port": 5432
 }
 
 
 def fetch_page(url):
     try:
-        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=10)
+        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
         response.raise_for_status()
         return response.text
-    except requests.RequestException as err:
-        print(f'Klaida kraunant puslapį {url}: {err}')
-        return None
+    except requests.exceptions.HTTPError as err:
+        print(f'Klaida: {err}')
+    return None
 
 
-def parse_page(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    table_body = driver.find_element(By.CSS_SELECTOR, "tbody")
-    table_rows = table_body.find_elements(By.TAG_NAME, "tr")
+def setup_driver():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    return driver
 
-    with open("movie_data.csv", "w", newline="") as file:
-        writer = csv.writer(file)
+
+def gauti_lenteles_eilutes(dreiver, selector):
+    table = WebDriverWait(dreiver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
+    return table.find_elements(By.TAG_NAME, 'tr')
+
+    naftos_kainos = []
     for row in table_rows:
-        table_data = row.find_elements(By.TAG_NAME, "td")
-
-    row_data = []
-    for data in table_data:
-        row_data.append(data.text)
-    print(row_data)
-    if not row_data:
-        print("Duomenų nerasta")
-
-    return row_data
+        columns = row.find_elements(By.TAG_NAME, 'td')
+        row_data = [column.text.strip() for column in columns]
+        naftos_kainos.append(row_data)
 
 
-def save_page(rows):
-    if not rows:
-        print("Duomenų nerasta")
-        return
-
+def issaugoti_duomenu_bazeje(duomenys, db_config):
     try:
         with psycopg2.connect(**db_config) as conn:
-            with conn.cursor() as cur:
-                sql = """
-                      INSERT INTO kainos (open, close, high, low, volume, date) \
-                      VALUES (%s, %s, %s, %s, %s, %s)
+            with conn.cursor() as cursor:
 
-                      ON CONFLICT (open, close, high, low, volume, date) DO NOTHING; \
-                      """
-                # siekiama isvengti klaidu
-                execute_values(cur, sql, rows)
-                print(f"Successfully inserted {len(rows)} rows into the database.")
-    except psycopg2.Error as e:
-        print(f"Database error: {e}")
+                cursor.executemany("""INSERT INTO kainos_naftos (open, close, high, low, volume, date)
+                                      VALUES (%s, %s, %s, %s, %s, %s)
+                                      ON CONFLICT (date) DO NOTHING
+
+                                   """, duomenys)
+            conn.commit()
+        conn.close()
+
+        print("Duomenys įrašyti į duomenų bazę")
+    except:
+        print("Klaida, įrašant duomenis į duomenų bazę")
+
+        cursor.close()
+        conn.close()
 
 
 def main():
-    all_data = []
+    url = 'https://markets.businessinsider.com/commodities/oil-price?type=wti?utm_source=feedly'
 
     page = fetch_page(url)
     if page:
-        naftos_kainos_duomenys = parse_page(page)
-        if naftos_kainos_duomenys:
-            all_data.extend(naftos_kainos_duomenys)
-        else:
-            print(f"Duomenų iš puslapio gauti nepavyko")
+        selector = 'table tr'
+        driver = setup_driver()
+        driver.get(url)
+        table_rows = gauti_lenteles_eilutes(driver, selector)
+        driver.quit()
 
-        if all_data:
-            save_page(all_data)
+        with open('Nafta_nuo_2015_01_iki_2025_04.csv', 'w', newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerows(table_rows)
+            print(f"Duomenys įrašyti į csv: {csvfile.name}")
 
+        issaugoti_duomenu_bazeje(table_rows, db_config)
+#print
 
 if __name__ == '__main__':
     main()

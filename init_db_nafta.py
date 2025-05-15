@@ -11,10 +11,10 @@ PG_PORT = 5432
 DB_NAME = 'Naftos_kaina'
 TABLE_SQL = """
     CREATE TABLE IF NOT EXISTS kainos(
-        Open varchar,
-        Close varchar,
-        High varchar,
-        Low varchar, 
+        Open decimal,
+        Close decimal,
+        High decimal,
+        Low decimal, 
         Volume varchar,
         Date varchar
         
