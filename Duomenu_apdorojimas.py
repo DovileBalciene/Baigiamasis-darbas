@@ -7,11 +7,12 @@ df = pd.read_csv(file_path)
 """ Sutvarkome datos formata"""
 df['Date'] = pd.to_datetime(df['Date'], format='mixed')
 
+""" Atliekamas duomenų apdorojimas (Pandas) """
 
 vidutine_kaina_nuo_pradines_reiksmes = df["Open"].mean().round(2)
 print(f'Vidutine kaina {vidutine_kaina_nuo_pradines_reiksmes}')
 
-auksciausia_kaina_pagal_data = df.groupby(['Date'])['High'].max(5)
+auksciausia_kaina_pagal_data = df.groupby(['High']).max().head(5)
 print(f'Aukščiausia kaina {auksciausia_kaina_pagal_data}')
 
 
