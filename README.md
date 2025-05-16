@@ -167,7 +167,7 @@ import matplotlib.pyplot as plt
 pagal nurodytą reikšmę if x > 80, naudojama reikšmė 1, o klasė Aukšta, 
 kitu atveju 0 ir klasė Žema
    - Naudojamas modelis yra 0.98 tikslumo
-   - 
+
 
 ---
 
@@ -194,4 +194,3 @@ iš kurių galime kurti csv failą.
    - Naudodami, neuroninius tinklus ir prognozės modelį, sukuriame vizualizacijas, atspindinčias duomenis
    - Sukurę "postgres" duomenų bazę, atliekame "sql" užklausas
    - Pagal surinktus duomenis matome, kad aukščiausią kainą nafta pasiekė 2022 metais
-   - 
