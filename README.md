@@ -144,7 +144,7 @@ import matplotlib.pyplot as plt
 leidžiantis prognozuoti naftos kainą pasirinktam laikotarpiui,
 šiuo atmeju 1 mėnesiui.
    - Pagal prognozės modelį matome, jog prognozuojama naftos kaina po mėnėsio yra 40.89
-   - Stebint istorinių duomenų pasiskirstymą matome, kad ilgą laiką 
+   
 
 ---
 ### Prognozės modelis
