@@ -124,7 +124,7 @@ Nafta_nuo_2015_01_01_iki_2025_04_30.csv
 ---
 
    - Naudojama Matplotlib pyplot biblioteka
-   - Sukuriamas naujas stulpelio kintamasis
+   - Sukuriamas naujas stulpelio kintamasis (Year)
    - Piešiama PLOT vizualizacija, atvaizduojanti naftos kainų augimą, pagal metus
    - Pagal grafiką matoma, jog aukščiausia naftos kaina buvo 2022 metais
    - Mažiausia naftos kaina buvo fiksuojama 2018 metais
@@ -160,7 +160,14 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score 
 import matplotlib.pyplot as plt
 ```
-   - Naftos kainų prognozė, naudojant neuronoinį tinklą
+   - Naftos kainų prognozė, naudojant neuroninį tinklą
+   - Pasitelkiamas DecisionTreeClassifier modelis
+   - Modeliui naudojami aukščiausios kainos ir datos kriterijai
+   - Naudojama 'lambda' funkcija, kuri suteikia aukštos ir žemos klasės kriterijų, 
+pagal nurodytą reikšmę if x > 80, naudojama reikšmė 1, o klasė Aukšta, 
+kitu atveju 0 ir klasė Žema
+   - Naudojamas modelis yra 0.98 tikslumo
+   - 
 
 ---
 
