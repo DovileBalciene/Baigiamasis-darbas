@@ -47,7 +47,7 @@ grafiškai atvaizduojame naftos kainų pokyčius.
 1. Saugyklos klonavimas iš GitHub<br>
 
 ```
-https://github.com/DovileBalciene/Baigiamasi-darbas
+https://github.com/DovileBalciene/Baigiamasis-darbas
 ```
 ```
 cd Baigiamasis-darbas
@@ -102,7 +102,7 @@ import pandas as pd
 ```
 2. Duomenų failo įkėlimas<br>
 ```
-
+Nafta_nuo_2015_01_01_iki_2025_04_30.csv
 ```
 
 3. Duomenų valymas 
@@ -131,18 +131,20 @@ import pandas as pd
 
 ---
 
-![Image](https://github.com/user-attachments/assets/ed02c9a1-c6b0-4af1-acab-251f09b4198e)
+![Image](https://github.com/user-attachments/assets/7e3291fd-63bf-4402-912b-ac1aa8f15359)
    - Naudojamos bibliotekos<br>
 ```
 import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
-from tensorflow.keras import Input
-from tensorflow.keras import Sequential
-from tensorflow.keras. layers import Flatten, Dense
 ```
-   - Neuroninio tinklo apmokymas, naudojant 2 tankių sluoksnį, gaunant naftos kainos prognozę
-   - Tinklas apsimoko iš 1000 epochu, pateikiami tikslumo ir praradimo rodikliai
-   - Buvo mėginta daryti su 100 epochu, bet gavosi didelis nuostolis, tad nuspręsta didinti jų skaičių
+   - Naudojamas tiesinės progresijos modelis,
+leidžiantis prognozuoti naftos kainą pasirinktam laikotarpiui,
+šiuo atmeju 1 mėnesiui.
+   - Pagal prognozės modelį matome, jog prognozuojama naftos kaina po mėnėsio yra 40.89
+   - Stebint istorinių duomenų pasiskirstymą matome, kad ilgą laiką 
 
 ---
 ### Prognozės modelis
