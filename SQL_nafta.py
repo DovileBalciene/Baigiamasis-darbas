@@ -1,29 +1,4 @@
-import pandas as pd
-from sqlalchemy import create_engine
-import  psycopg2
 
-
-
-db_config = {
-    "user": "postgres",
-    "password": "123456A",
-    "host": "localhost",
-    "port": 5432,
-    "dbname": "Naftos_kaina"
-}
-#jungiames prie duomenu bazes
-connection = (f'postgresql://{db_config["user"]}:{db_config["password"]}@{db_config["host"]}:{db_config["port"]}/{db_config["dbname"]}')
-engine = create_engine(connection) #sukuriame prisijungima prie DB
-
-sql_query = """SELECT * FROM kainos;""" #SQL didziosios, paimamae duomenis  butinos 3 kabutes, nurodome lenteles pavadinima
-
-
-
-
-df = pd.read_sql(sql_query, engine)
-"""SELECT * FROM kainos WHERE open<60;"""
-
-#print(df.head())
 import pandas as pd
 import psycopg2
 from sqlalchemy import create_engine
@@ -38,11 +13,13 @@ db_config = {
     "dbname": "Naftos_kaina"
 }
 
+# Prisijungimas prie duomenų bazės
 connection = (f'postgresql://{db_config["user"]}:{db_config["password"]}@{db_config["host"]}:{db_config["port"]}/{db_config["dbname"]}')
-# print(df.head())
+
 engine = create_engine(connection)
 
 
+# Užklausos
 
 rikiavimas_pagal_data = ("SELECT * FROM kainos ORDER BY date DESC LIMIT 5;")
 
