@@ -5,7 +5,7 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score # parodo proc kiek prognoze yra tiksli
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('C:/Users/dovil/PycharmProjects/Baigiamasis_darbas/Nafta_nuo_2015_01_01_iki_2025_04_30.csv')
+df = pd.read_csv("C:/Users/Vartotojas/PycharmProjects/Baigiamasis-darbas/Nafta_nuo_2015_01_01_iki_2025_04_30.csv")
 #print(df.head())
 
 df['High Price'] = df['High'].apply(lambda x: 1 if x > 80 else 0)

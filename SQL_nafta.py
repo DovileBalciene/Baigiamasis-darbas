@@ -1,13 +1,12 @@
 
 import pandas as pd
-import psycopg2
 from sqlalchemy import create_engine
 
 
 
 db_config = {
     "user": "postgres",
-    "password": "369963369",
+    "password": "123456A",
     "host": "localhost",
     "port": 5432,
     "dbname": "Naftos_kaina"
