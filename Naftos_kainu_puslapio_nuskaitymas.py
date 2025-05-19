@@ -92,7 +92,8 @@ def issaugoti_duomenu_bazeje(duomenys):
             cursor.execute("""
                            INSERT INTO kainos_naftos (date, open, close, high, low, volume)
                            VALUES (%s, %s, %s, %s, %s, %s)
-                           """, (elementas.get("Date", ""), elementas.get("Open", 0), elementas.get("Close", 0), elementas.get("High", 0),
+                           """, (elementas.get("Date", ""), elementas.get("Open", 0), elementas.get("Close", 0),
+                                 elementas.get("High", 0),
                                  elementas.get("Low", 0), elementas.get("Volume", 0)))
 
         conn.commit()  # Išsaugoti
